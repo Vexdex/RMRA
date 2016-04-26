@@ -67,3 +67,34 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+guzzle:
+    clients:        
+        api_payment:
+            base_url: "https://redmine.ekreative.com"
+            
+            
+            # custom headers
+            headers:
+                Accept: "application/json"
+
+            # guzzle client options (full description here: http://guzzle.readthedocs.org/en/latest/request-options.html)
+            # NOTE: "headers" option is not accepted here as it is provided as described above.
+            options:
+                auth:
+                    - test     # login
+                    - 9uu82T487m6V41G # password
+                timeout: 30
+                
+
+            # plugin settings
+            plugin:
+                wsse:
+                    username: test
+                    password: 9uu82T487m6V41G
+
+        api_crm:
+            base_url: "https://redmine.ekreative.com"
+            headers:
+                Accept: "application/json"
+              
